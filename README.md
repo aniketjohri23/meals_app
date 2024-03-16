@@ -1,6 +1,8 @@
 # meals_app
 
-A new Flutter project.
+A local recipes app to store meals details. This app provides the user the facilities to filter out the meals and store favourite ones.
+![2024_03_16_0qc_Kleki](https://github.com/aniketjohri23/meals_app/assets/73753201/b5d4d62f-93eb-4b00-aafe-dda8d72d0592)
+
 
 ## Getting Started
 
