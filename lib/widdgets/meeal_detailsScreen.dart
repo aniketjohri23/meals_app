@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:meals_app/model/meal.dart';
@@ -33,18 +34,35 @@ class MealDetailsScreen extends ConsumerWidget{
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(wasAdded?'meal added to favs':'meal removed'),),
             );
-          }, icon:  Icon(isFav?  Icons.star:Icons.star_border))
+          },
+            icon: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child,animation){
+                  return RotationTransition(
+                    turns: Tween<double>(begin: 0.8,end: 1).animate(animation ),
+                    child: child,);
+                        },
+                  child: Icon(
+                      isFav?
+                      Icons.star:Icons.star_border,
+                      key : ValueKey(isFav)),
+            ),
+            )
+
+
         ]
     ),
     body: SingleChildScrollView(
       child: Column(
         children: [
-          Image.network(
-          meal.imageUrl,
-          height: 300,
-          width: double.infinity,
-          fit: BoxFit.cover,
-          ),
+          Hero(
+            tag: meal.id,
+            child: Image.network(
+              meal.imageUrl,
+            height: 300,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            ),),
           const SizedBox(height:14),
            Text(
             'Ingredients',

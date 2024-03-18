@@ -1,17 +1,12 @@
 
 import 'package:meals_app/providers/favorites_provider.dart';
 import 'package:meals_app/providers/meals_provider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meals_app/data/dummy_data.dart';
-import 'package:meals_app/main.dart';
 import 'package:meals_app/screen/CategoriesScreen.dart';
 import 'package:meals_app/screen/meals.dart';
 import 'package:meals_app/widdgets/main_drawer.dart';
 import 'package:meals_app/providers/filters_provider.dart';
-import '../model/meal.dart';
 import 'filters.dart';
 
 const kInitialFilter = {
@@ -79,7 +74,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen>{
         title: "Favorites",
         meals: favMeals,
         );
-      activePageTitle = 'favorites';
+      activePageTitle = 'Favorites';
     }
 
     return Scaffold(
